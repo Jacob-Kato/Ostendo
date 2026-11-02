@@ -5,7 +5,7 @@ A scientific tool built in C++17 to computationally investigate the unproven Col
 
 ---
 
-## The Mathematical Mystery
+## The Collatz Conjecture
 
 The Collatz Conjecture (or the $3n + 1$ problem) states that for any positive integer $n$, repeating the following transformation will always eventually reach $1$:
 
