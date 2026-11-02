@@ -42,8 +42,8 @@ int main() {
   // when n = 0 result = 'n can not be 0 or less then 0!'
   std::uint64_t test5 = 0;
   std::cout << "Test5:" << nextHailstone(test5) << '\n';
-  // when n = 207 result = 'n will cause Multiplication Overflow
-  std::uint64_t test6 = 207;
+  // when n = 446 result = 'n will cause Multiplication Overflow
+  std::uint64_t test6 = 446;
   std::cout << "Test:6" << nextHailstone(test6) << '\n';
 
   return 0;
