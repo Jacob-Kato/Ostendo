@@ -43,6 +43,7 @@ int main() {
   std::uint64_t test5 = 0;
   std::cout << "Test5:" << nextHailstone(test5) << '\n';
   // when n = 446 result = 'n will cause Multiplication Overflow
+  // test failed could not get the multiplication overflow to get detected
   std::uint64_t test6 = 446;
   std::cout << "Test:6" << nextHailstone(test6) << '\n';
 
