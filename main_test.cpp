@@ -4,6 +4,8 @@
 
 std::uint64_t nextHailstone(std::uint64_t n) {
   // Make sure func doen't div by zero
+  // both time and space are O(1); because we  can only take one input and we
+  // don't save items
   if (n > 0) {
     if ((n % 2) == 0) {
       return n / 2;
