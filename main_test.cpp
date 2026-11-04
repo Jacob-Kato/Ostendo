@@ -44,9 +44,8 @@ int main() {
   // when n = 0 result = 'n can not be 0 or less then 0!'
   std::uint64_t test5 = 0;
   std::cout << "Test5:" << nextHailstone(test5) << '\n';
-  // when n = 446 result = 'n will cause Multiplication Overflow
-  // test failed could not get the multiplication overflow to get detected
-  std::uint64_t test6 = 446;
+  // when n = 6148914691236517204.3333333333 result = 'n will cause
+  std::uint64_t test6 = 6148914691236517204.3333333333;
   std::cout << "Test:6" << nextHailstone(test6) << '\n';
 
   return 0;
