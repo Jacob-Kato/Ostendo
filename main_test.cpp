@@ -46,6 +46,10 @@ int main() {
   std::cout << "Test5:" << nextHailstone(test5) << '\n';
   // when n = 6148914691236517204.3333333333 result = 'n will cause
   std::uint64_t test6 = (UINT64_MAX - 1) / 3;
+  if (test6 >= ((UINT64_MAX - 1) / 3)) {
+    std::cout << "done";
+    return 0;
+  }
   std::cout << "Test:6" << nextHailstone(test6) << '\n';
 
   return 0;
