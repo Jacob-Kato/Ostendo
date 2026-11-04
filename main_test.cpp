@@ -11,7 +11,7 @@ std::uint64_t nextHailstone(std::uint64_t n) {
       return n / 2;
     } else {
       // Check if there is going to be a Multiplication Overflow
-      if (n > (UINT64_MAX - 1) / 3) {
+      if (n >= (UINT64_MAX - 1) / 3) {
         std::cout << "n will cause a Multiplication Overflow";
         return 0;
       }
