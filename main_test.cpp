@@ -27,7 +27,7 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 
 void hailstoneTest(std::vector<uint64_t> n) {
   for (int i = 0; i < n.size(); i++) {
-    std::cout << "Test " << i + 1 << ": " << nextHailstone(n[i]);
+    std::cout << "Test " << i + 1 << ": " << nextHailstone(n[i]) << "\n";
   }
 }
 
