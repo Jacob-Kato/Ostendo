@@ -1,56 +1,42 @@
 #include <cstdint>
 #include <iostream>
+#include <stdexcept>
 #include <stdint.h>
+#include <vector>
 
 std::uint64_t nextHailstone(std::uint64_t n) {
-  // Make sure func doen't div by zero
-  // both time and space are O(1); because we  can only take one input and we
-  // don't save items
-  if (n > 0) {
+  // both time and space are O(1); because we --
+  // can only take one input and we don't save items
+  try { // try block to catch 0 or multiplication overflow
+    if (n < 0) {
+      throw std::runtime_error("Can not div 0");
+    }
     if ((n % 2) == 0) {
       return n / 2;
-    } else {
-      // Check if there is going to be a Multiplication Overflow
-      if (n >= (UINT64_MAX - 1) / 3) {
-        std::cout << "n will cause a Multiplication Overflow";
-        return 0;
-      }
-      std::uint64_t result = (3 * n) + 1;
-      // Checking if a Addition Overflow happend
-      if (result < (3 * n) || result < 1) {
-        std::cout << "Addition Overflow has happend";
-        return 0;
-      }
-      return result;
     }
+  } catch (std::runtime_error &e) {
+    std::cerr << "Caught an exception: " << e.what();
   }
-  std::cout << "n Can not be 0 or less then 0!";
-  return 0;
+
+  if (n >= (UINT64_MAX - 1) / 3) { // Check the closest value that can cause a
+    // UINT64 overflow
+    throw std::runtime_error("Value is to large");
+  }
+  return (3 * n) + 1;
+}
+
+void hailstoneTest(std::vector<uint64_t> n) {
+  for (int i = 0; i < n.size(); i++) {
+  }
 }
 
 int main() {
-  // when n = 1 result = 4
-  std::uint64_t test1 = 1;
-  std::cout << "Test1:" << nextHailstone(test1) << '\n';
-  // when n = 2 result = 1
-  std::uint64_t test2 = 2;
-  std::cout << "Test2:" << nextHailstone(test2) << '\n';
-  // when n = 7 result = 22
-  std::uint64_t test3 = 7;
-  std::cout << "Test3:" << nextHailstone(test3) << '\n';
-  // when n = 10 result = 5
-  std::uint64_t test4 = 10;
-  std::cout << "Test4:" << nextHailstone(test4) << '\n';
-  // when n = 0 result = 'n can not be 0 or less then 0!'
-  std::uint64_t test5 = 0;
-  std::cout << "Test5:" << nextHailstone(test5) << '\n';
-  // when n = 6148914691236517204.3333333333 result = 'n will cause
-  std::uint64_t test6 = (UINT64_MAX - 1) / 3;
-  if (test6 >= ((UINT64_MAX - 1) / 3)) {
-    std::cout << "done";
-    return 0;
-  }
-  std::cout << "Test:6" << nextHailstone(test6) << '\n';
-
+  std::vector<uint64_t> narray = {1, 2, 7, 10, 0, ((UINT64_MAX - 1) / 3)};
+  // Test 1; n = 1 reslut = 4
+  // Test 2; n =  2 reslut = 1
+  // Test 3; n = 7 reslut = 22
+  // Test 4; n = 10 reslut = 5
+  // Test 5; n = 0 reslut = 0 error
+  // Test 6; n = UINT64_MAX - 1 / 3 reslut = overflow error
   return 0;
 }
