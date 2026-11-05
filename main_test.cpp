@@ -10,10 +10,14 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   // can only take one input and we don't save items
   if (n <= 0) {
     throw std::invalid_argument("invalid input ");
-  } else if ((n % 2) == 0) {
+  }
+
+  if ((n % 2) == 0) {
     return n / 2;
-  } else if (n >= (UINT64_MAX / 3) - 1) { // Check the closest value that can
-                                          // cause a // UINT64 overflow
+  }
+
+  if (n > (UINT64_MAX - 1) / 3) { // Check the closest value that can
+                                  // cause a // UINT64 overflow
     throw std::overflow_error("Value is to large");
   }
 
@@ -35,7 +39,7 @@ void hailstoneTest(std::vector<uint64_t> n) {
 }
 
 int main() {
-  std::vector<uint64_t> narray = {1, 2, 7, 10, 0, ((UINT64_MAX / 3) - 1)};
+  std::vector<uint64_t> narray = {1, 2, 7, 10, 0, ((UINT64_MAX - 1) / 3)};
   // Test 1; n = 1 reslut = 4
   // Test 2; n =  2 reslut = 1
   // Test 3; n = 7 reslut = 22
