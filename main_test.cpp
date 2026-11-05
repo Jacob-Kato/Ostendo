@@ -8,20 +8,20 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   // both time and space are O(1); because we --
   // can only take one input and we don't save items
   try { // try block to catch 0 or multiplication overflow
-    if (n < 0) {
+    if (n <= 0) {
       throw std::runtime_error("Can not div 0");
     }
     if ((n % 2) == 0) {
       return n / 2;
     }
+    if (n >= (UINT64_MAX - 1) / 3) { // Check the closest value that can cause a
+                                     // UINT64 overflow
+      throw std::runtime_error("Value is to large");
+    }
   } catch (std::runtime_error &e) {
     std::cerr << "Caught an exception: " << e.what();
   }
 
-  if (n >= (UINT64_MAX - 1) / 3) { // Check the closest value that can cause a
-    // UINT64 overflow
-    throw std::runtime_error("Value is to large");
-  }
   return (3 * n) + 1;
 }
 
