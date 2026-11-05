@@ -27,6 +27,7 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 
 void hailstoneTest(std::vector<uint64_t> n) {
   for (int i = 0; i < n.size(); i++) {
+    std::cout << "Test " << i + 1 << ": " << nextHailstone(n[i]);
   }
 }
 
@@ -38,5 +39,6 @@ int main() {
   // Test 4; n = 10 reslut = 5
   // Test 5; n = 0 reslut = 0 error
   // Test 6; n = UINT64_MAX - 1 / 3 reslut = overflow error
+  hailstoneTest(narray);
   return 0;
 }
