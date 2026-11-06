@@ -39,13 +39,15 @@ void hailstoneTest(std::vector<uint64_t> n) {
 }
 
 int main() {
-  std::vector<uint64_t> narray = {1, 2, 7, 10, 0, (UINT64_MAX / 3)};
+  std::vector<uint64_t> narray = {
+      1, 2, 7, 10, 0, (UINT64_MAX / 3), ((UINT64_MAX - 1) / 3)};
   // Test 1; n = 1 reslut = 4
   // Test 2; n =  2 reslut = 1
   // Test 3; n = 7 reslut = 22
   // Test 4; n = 10 reslut = 5
   // Test 5; n = 0 reslut = 0 error
-  // Test 6; n = UINT64_MAX - 1 / 3 reslut = overflow error
+  // Test 6; n = UINT64_MAX/ 3 reslut = overflow error
+  // Test 7; n = UINT64_MAX - 1 / 3 reslut = 18442744073709551616
   hailstoneTest(narray);
   return 0;
 }
