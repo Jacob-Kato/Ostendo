@@ -40,7 +40,7 @@ void hailstoneTest(std::vector<uint64_t> n) {
 
 int main() {
   std::vector<uint64_t> narray = {
-      1, 2, 7, 10, 0, (UINT64_MAX / 3), ((UINT64_MAX - 1) / 3)};
+      1, 2, 7, 10, 0, ((UINT64_MAX / 3) - 1), ((UINT64_MAX / 3) - 2)};
   // Test 1; n = 1 reslut = 4
   // Test 2; n =  2 reslut = 1
   // Test 3; n = 7 reslut = 22
