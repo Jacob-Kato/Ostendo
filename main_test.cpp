@@ -8,7 +8,7 @@
 std::uint64_t nextHailstone(std::uint64_t n) {
   // both time and space are O(1); because we --
   // can only take one input and we don't save items
-  if (n <= 0) {
+  if (n == 0) {
     throw std::invalid_argument("invalid input ");
   }
 
@@ -25,14 +25,14 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 }
 
 void hailstoneTest(const std::vector<uint64_t> &n) {
-  int index = 0;
+  int index = 1;
   for (const auto value_n : n) {
     std::cout << "Test " << index << ": " << "( n = " << value_n << ")"
               << "\n";
     try {
       std::uint64_t reslut = nextHailstone(value_n);
       std::cout << reslut << "\n";
-    } catch (std::exception &e) {
+    } catch (const std::exception &e) {
       // catch the error here so that we don't get invalid
       //  Outputs
       std::cerr << "Error ->" << e.what() << "\n";
@@ -50,7 +50,7 @@ int main() {
   // Test 4; n = 10 reslut = 5
   // Test 5; n = 0 reslut = 0 error
   // Test 6; n = UINT64_MAX/ 3 reslut = overflow error
-  // Test 7; n = UINT64_MAX - 1 / 3 reslut = 3074457345618258602
+  // Test 7; n = UINT64_MAX /3 -2  reslut = 18446744073709551610
   hailstoneTest(narray);
   return 0;
 }
