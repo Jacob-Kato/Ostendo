@@ -24,11 +24,13 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   return (3 * n) + 1;
 }
 
-void hailstoneTest(std::vector<uint64_t> n) {
-  for (int i = 0; i < n.size(); i++) {
-    std::cout << "Test " << i + 1 << ": " << "( n = " << n[i] << ")" << "\n";
+void hailstoneTest(const std::vector<uint64_t> &n) {
+  int index = 0;
+  for (const auto value_n : n) {
+    std::cout << "Test " << index + 1 << ": " << "( n = " << value_n << ")"
+              << "\n";
     try {
-      std::uint64_t reslut = nextHailstone(n[i]);
+      std::uint64_t reslut = nextHailstone(value_n);
       std::cout << reslut << "\n";
     } catch (std::exception &e) {
       // catch the error here so that we don't get invalid
@@ -40,7 +42,7 @@ void hailstoneTest(std::vector<uint64_t> n) {
 
 int main() {
   std::vector<uint64_t> narray = {
-      1, 2, 7, 10, 0, ((UINT64_MAX / 3) - 1), ((UINT64_MAX / 3) - 2)};
+      1, 2, 7, 10, 0, (UINT64_MAX / 3), ((UINT64_MAX / 3) - 2)};
   // Test 1; n = 1 reslut = 4
   // Test 2; n =  2 reslut = 1
   // Test 3; n = 7 reslut = 22
