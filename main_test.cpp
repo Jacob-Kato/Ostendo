@@ -27,7 +27,7 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 void hailstoneTest(const std::vector<uint64_t> &n) {
   int index = 0;
   for (const auto value_n : n) {
-    std::cout << "Test " << index + 1 << ": " << "( n = " << value_n << ")"
+    std::cout << "Test " << index << ": " << "( n = " << value_n << ")"
               << "\n";
     try {
       std::uint64_t reslut = nextHailstone(value_n);
@@ -37,6 +37,7 @@ void hailstoneTest(const std::vector<uint64_t> &n) {
       //  Outputs
       std::cerr << "Error ->" << e.what() << "\n";
     }
+    index++;
   }
 }
 
