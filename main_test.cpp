@@ -3,7 +3,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <stdint.h>
-#include <vector>
 
 std::uint64_t nextHailstone(std::uint64_t n) {
   // both time and space are O(1); because we --
@@ -24,33 +23,34 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   return (3 * n) + 1;
 }
 
-void hailstoneTest(const std::vector<uint64_t> &n) {
-  int index = 1;
-  for (const auto value_n : n) {
-    std::cout << "Test " << index << ": " << "( n = " << value_n << ")"
-              << "\n";
-    try {
-      std::uint64_t reslut = nextHailstone(value_n);
-      std::cout << reslut << "\n";
-    } catch (const std::exception &e) {
-      // catch the error here so that we don't get invalid
-      //  Outputs
-      std::cerr << "Error ->" << e.what() << "\n";
+std::uint64_t stoppingTime(std::uint64_t &n) {
+  std::uint64_t count = 0;
+  while (true) {
+    std::uint64_t reslut = nextHailstone(n);
+    count++;
+    if (reslut == 1) {
+      break;
     }
-    index++;
+    n = reslut;
+    continue;
+  }
+  return count;
+}
+
+void hailstoneTest(std::uint64_t &n) {
+  try {
+    std::cout << "n = " << n << "\n";
+    std::uint64_t reslut = stoppingTime(n);
+    std::cout << "Stop time = " << reslut << "\n";
+  } catch (const std::exception &e) {
+    // catch the error here so that we don't get invalid
+    //  Outputs
+    std::cerr << "Error ->" << e.what() << "\n";
   }
 }
 
 int main() {
-  std::vector<uint64_t> narray = {
-      1, 2, 7, 10, 0, (UINT64_MAX / 3), ((UINT64_MAX / 3) - 2)};
-  // Test 1; n = 1 reslut = 4
-  // Test 2; n =  2 reslut = 1
-  // Test 3; n = 7 reslut = 22
-  // Test 4; n = 10 reslut = 5
-  // Test 5; n = 0 reslut = 0 error
-  // Test 6; n = UINT64_MAX/ 3 reslut = overflow error
-  // Test 7; n = UINT64_MAX /3 -2  reslut = 18446744073709551610
-  hailstoneTest(narray);
+  std::uint64_t n = 349;
+  hailstoneTest(n);
   return 0;
 }
