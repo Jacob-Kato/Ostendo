@@ -31,6 +31,7 @@ std::uint64_t stoppingTime(std::uint64_t n) {
     if (reslut == 1) {
       break;
     }
+    n = reslut;
     continue;
   }
   return count;
