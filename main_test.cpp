@@ -27,17 +27,16 @@ std::uint64_t stoppingTime(std::uint64_t n) {
   std::uint64_t count = 0;
   while (true) {
     std::uint64_t reslut = nextHailstone(n);
-    if (nextHailstone(n) == 1) {
+    count++;
+    if (reslut == 1) {
       break;
     }
-    count++;
-    n = reslut;
     continue;
   }
   return count;
 }
 
-void hailstoneTest(std::uint64_t &n) {
+void hailstoneTest(std::uint64_t n) {
   try {
     std::cout << "n = " << n << "\n";
     std::uint64_t reslut = stoppingTime(n);
@@ -50,7 +49,7 @@ void hailstoneTest(std::uint64_t &n) {
 }
 
 int main() {
-  std::uint64_t n = 1;
+  std::uint64_t n = 7;
   // n = 7 reslut = 16
   hailstoneTest(n);
   return 0;
