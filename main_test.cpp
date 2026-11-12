@@ -25,15 +25,9 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 
 std::uint64_t stoppingTime(std::uint64_t n) {
   std::uint64_t count = 0;
-  while (true) {
-    if (n == 1) {
-      break;
-    }
+  while (n != 1) {
     std::uint64_t reslut = nextHailstone(n);
     count++;
-    if (reslut == 1) {
-      break;
-    }
     n = reslut;
     continue;
   }
