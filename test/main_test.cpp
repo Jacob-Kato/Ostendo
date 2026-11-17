@@ -1,14 +1,18 @@
-#include "hailstone.h"
+#include "/home/kato/Ostendo/hailstone/hailstone.h"
 #include <cstdint>
 #include <exception>
 #include <iostream>
 #include <stdint.h>
+#include <vector>
 
-void hailstoneTest(std::uint64_t n) {
+void hailstoneTest(const std::vector<std::uint64_t> &n) {
+
   try {
-    std::cout << "n = " << n << "\n";
-    std::uint64_t reslut = stoppingTime(n);
-    std::cout << "Stop time = " << reslut << "\n";
+    for (const auto &num : n) {
+      std::cout << "n = " << num << "\n";
+      std::uint64_t reslut = stoppingTime(num);
+      std::cout << "Stop time = " << reslut << "\n";
+    }
   } catch (const std::exception &e) {
     // catch the error here so that we don't get invalid
     //  Outputs
@@ -17,8 +21,14 @@ void hailstoneTest(std::uint64_t n) {
 }
 
 int main() {
-  std::uint64_t n = 1;
+  std::vector<std::uint64_t> testnumber = {
+      1, // 0
+      2, // 1
+      7, // 16
+      0  // invalid agrument
+  };
+
   // n = 7 reslut = 16
-  hailstoneTest(n);
+  hailstoneTest(testnumber);
   return 0;
 }
