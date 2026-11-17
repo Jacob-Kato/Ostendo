@@ -23,11 +23,11 @@ std::uint64_t nextHailstone(std::uint64_t n) {
 
 std::uint64_t stoppingTime(std::uint64_t n, const std::uint64_t &stop_limit) {
   std::uint64_t count = 0;
-  if (count == stop_limit) {
-    throw std::range_error(
-        "This N value has hit the stop time limit you set !");
-  }
   while (n != 1) {
+    if (count >= stop_limit) {
+      throw std::range_error(
+          "This N value has hit the stop time limit you set !");
+    }
     std::uint64_t reslut = nextHailstone(n);
     count++;
     n = reslut;
