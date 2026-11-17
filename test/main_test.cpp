@@ -6,17 +6,19 @@
 #include <vector>
 
 void hailstoneTest(const std::vector<std::uint64_t> &n) {
+  for (const auto &num : n) {
+    try {
 
-  try {
-    for (const auto &num : n) {
       std::cout << "n = " << num << "\n";
       std::uint64_t reslut = stoppingTime(num);
       std::cout << "Stop time = " << reslut << "\n";
+
+    } catch (const std::exception &e) {
+
+      // catch the error here so that we don't get invalid
+      //  Outputs
+      std::cerr << "Error ->" << e.what() << "\n";
     }
-  } catch (const std::exception &e) {
-    // catch the error here so that we don't get invalid
-    //  Outputs
-    std::cerr << "Error ->" << e.what() << "\n";
   }
 }
 
