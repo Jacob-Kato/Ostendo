@@ -27,7 +27,6 @@ std::uint64_t stoppingTime(std::uint64_t n) {
     std::uint64_t reslut = nextHailstone(n);
     count++;
     n = reslut;
-    continue;
   }
   return count;
 }
