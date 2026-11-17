@@ -1,4 +1,4 @@
-#include "/home/kato/Ostendo/hailstone/hailstone.h"
+#include "../hailstone/hailstone.h"
 #include <cstdint>
 #include <exception>
 #include <iostream>
@@ -10,8 +10,8 @@ void hailstoneTest(const std::vector<std::uint64_t> &n) {
     try {
 
       std::cout << "n = " << num << "\n";
-      std::uint64_t reslut = stoppingTime(num);
-      std::cout << "Stop time = " << reslut << "\n";
+      std::uint64_t result = stoppingTime(num);
+      std::cout << "Stop time = " << result << "\n";
 
     } catch (const std::exception &e) {
 
