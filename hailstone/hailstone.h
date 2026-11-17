@@ -9,4 +9,4 @@
 
 std::uint64_t nextHailstone(std::uint64_t n);
 
-std::uint64_t stoppingTime(std::uint64_t n);
+std::uint64_t stoppingTime(std::uint64_t n, const std::uint64_t &stop_limit);
