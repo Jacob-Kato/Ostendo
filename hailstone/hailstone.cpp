@@ -2,6 +2,11 @@
 #include <stdexcept>
 #include <stdint.h>
 
+struct TrajectoryResult {
+  bool completed;
+  std::uint64_t stopping_time;
+};
+
 std::uint64_t nextHailstone(std::uint64_t n) {
   // both time and space are O(1); because we --
   // can only take one input and we don't save items
@@ -21,16 +26,22 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   return (3 * n) + 1;
 }
 
-std::uint64_t stoppingTime(std::uint64_t n, const std::uint64_t &stop_limit) {
+TrajectoryResult stoppingTime(std::uint64_t n,
+                              const std::uint64_t &stop_limit) {
   std::uint64_t count = 0;
   while (n != 1) {
     if (count >= stop_limit) {
-      throw std::range_error(
-          "This N value has hit the stop time limit you set !");
+      TrajectoryResult limit_item;
+      limit_item.stopping_time = count;
+      limit_item.completed = false;
+      return limit_item;
     }
     std::uint64_t reslut = nextHailstone(n);
     count++;
     n = reslut;
   }
-  return count;
+  TrajectoryResult completed_item;
+  completed_item.stopping_time = count;
+  completed_item.completed = true;
+  return completed_item;
 }

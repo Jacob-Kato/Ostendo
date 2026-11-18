@@ -7,12 +7,15 @@
 
 void hailstoneTest(const std::vector<std::uint64_t> &n,
                    const std::uint64_t &stop_limit) {
+  std::uint64_t index = 1;
   for (const auto &num : n) {
     try {
 
       std::cout << "n = " << num << "\n";
-      std::uint64_t result = stoppingTime(num, stop_limit);
-      std::cout << "Stop time = " << result << "\n";
+      TrajectoryResult result = stoppingTime(num, stop_limit);
+      std::cout << "item( " << index << " )" << "\n"
+                << "stopping Time: " << result.stopping_time << "\n"
+                << "Completed: " << result.completed;
 
     } catch (const std::exception &e) {
 
@@ -25,15 +28,11 @@ void hailstoneTest(const std::vector<std::uint64_t> &n,
 
 int main() {
   std::uint64_t limit = 16;
-  std::vector<std::uint64_t> testnumber = {
-      1, // 0
-      2, // 1
-      3, // 16
-      4, 5, 6, 7, 8, 9, 10,
-      0 // invalid agrument
-  };
+  std::vector<std::uint64_t> testnumber = {1, // 0
+                                           2, // 1
+                                           3, // 16
+                                           4, 5, 6, 7, 8, 9, 10, 20, 0};
 
-  // n = 7 reslut = 16
   hailstoneTest(testnumber, limit);
   return 0;
 }
