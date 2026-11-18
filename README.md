@@ -23,6 +23,11 @@ For example, starting with a value of **7** requires **16 steps** to terminate, 
 While the conjecture remains unproven, **The Hailstone Observatory** is engineered to test these trajectories computationally over large data ranges while uncovering the architectural rigors required to make mathematical experiments trustworthy.
 
 ---
+## Limit Rule
+reaching the iteration limit does not mean the trajectory never reaches 1. It means the experiment stopped before establishing that it does.
+
+
+
 
 ## Project Roadmap
 
