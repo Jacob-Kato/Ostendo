@@ -10,12 +10,20 @@ void hailstoneTest(const std::vector<std::uint64_t> &n,
   std::uint64_t index = 1;
   for (const auto &num : n) {
     try {
-      std::cout << "|-------------------|" << "\n";
+
       std::cout << "When n = " << num << "\n";
       TrajectoryResult result = stoppingTime(num, stop_limit);
-      std::cout << "item( " << index << " )" << "\n"
-                << "stopping Time: " << result.stopping_time << "\n"
-                << "Completed: " << result.completed << "\n";
+      if (result.completed) {
+        std::cout << "|---------completed---------|" << "\n";
+        std::cout << "item( " << index << " )" << "\n"
+                  << "Transition: " << result.transitions << "\n"
+                  << "Stopping Time: " << *result.stopping_time << "\n";
+
+      } else {
+        std::cout << "|---------No completed------|" << "\n";
+        std::cout << "item( " << index << " )" << "\n"
+                  << "Transition: " << result.transitions << "\n";
+      }
       index++;
 
     } catch (const std::exception &e) {

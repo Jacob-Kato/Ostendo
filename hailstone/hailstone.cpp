@@ -1,10 +1,12 @@
 #include <cstdint>
+#include <optional>
 #include <stdexcept>
 #include <stdint.h>
 
 struct TrajectoryResult {
   bool completed;
-  std::uint64_t stopping_time;
+  std::optional<std::uint64_t> stopping_time;
+  std::uint64_t tansitions;
 };
 
 std::uint64_t nextHailstone(std::uint64_t n) {
@@ -32,8 +34,8 @@ TrajectoryResult stoppingTime(std::uint64_t n,
   while (n != 1) {
     if (count >= stop_limit) {
       TrajectoryResult limit_item;
-      limit_item.stopping_time = count;
       limit_item.completed = false;
+      limit_item.tansitions = count;
       return limit_item;
     }
     std::uint64_t reslut = nextHailstone(n);
@@ -43,5 +45,6 @@ TrajectoryResult stoppingTime(std::uint64_t n,
   TrajectoryResult completed_item;
   completed_item.stopping_time = count;
   completed_item.completed = true;
+  completed_item.tansitions = count;
   return completed_item;
 }
