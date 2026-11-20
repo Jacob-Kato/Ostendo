@@ -20,7 +20,7 @@ void hailstoneTest(const std::vector<std::uint64_t> &n,
                   << "Stopping Time: " << *result.stopping_time << "\n";
 
       } else {
-        std::cout << "|---------No completed------|" << "\n";
+        std::cout << "|---------Not completed------|" << "\n";
         std::cout << "When n = " << num << "\n";
         std::cout << "item( " << index << " )" << "\n"
                   << "Transition: " << result.transitions << "\n";
