@@ -11,16 +11,17 @@ void hailstoneTest(const std::vector<std::uint64_t> &n,
   for (const auto &num : n) {
     try {
 
-      std::cout << "When n = " << num << "\n";
       TrajectoryResult result = stoppingTime(num, stop_limit);
       if (result.completed) {
         std::cout << "|---------completed---------|" << "\n";
+        std::cout << "When n = " << num << "\n";
         std::cout << "item( " << index << " )" << "\n"
                   << "Transition: " << result.transitions << "\n"
                   << "Stopping Time: " << *result.stopping_time << "\n";
 
       } else {
         std::cout << "|---------No completed------|" << "\n";
+        std::cout << "When n = " << num << "\n";
         std::cout << "item( " << index << " )" << "\n"
                   << "Transition: " << result.transitions << "\n";
       }
