@@ -6,13 +6,18 @@ Ostendo is a C++17 research project designed to investigate the Collatz conjectu
 
 The Collatz conjecture states that repeatedly applying the following rules to any positive integer will eventually produce 1:
 
+$$
+T(n) = 
+\begin{cases} 
+\frac{n}{2} & \text{if } n \text{ is even} \\ 
+3n + 1 & \text{if } n \text{ is odd} 
 \[
 T(n)=
 \begin{cases}
 n/2 & \text{if } n \text{ is even}\\
 3n+1 & \text{if } n \text{ is odd}
 \end{cases}
-\]
+$$
 
 Rather than simply calculating individual trajectories, Ostendo investigates the distribution of stopping times across large ranges of starting values.
 
