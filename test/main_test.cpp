@@ -1,4 +1,5 @@
 #include "../hailstone/hailstone.h"
+#include <chrono>
 #include <cstdint>
 #include <exception>
 #include <iostream>
@@ -23,6 +24,13 @@ void hailstoneTest(std::uint64_t range, std::uint64_t large_threshold) {
 }
 
 int main() {
+  auto start = std::chrono::steady_clock::now();
   hailstoneTest(1000, 178);
+  auto end = std::chrono::steady_clock::now();
+  auto duration =
+      std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "Time spent: " << duration.count() << "milliseconds"
+            << std::endl;
+
   return 0;
 }

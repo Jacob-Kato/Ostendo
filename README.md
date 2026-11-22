@@ -7,8 +7,10 @@ The goal is to experiment, collect data, and see what interesting patterns I can
 
 ## Tests
 
-|       1 - 1k       |
-| -------------------|
-| Max stop time = 178| 
-| N value = 871      |
+|       1 - 1k       |        1 - 10m       |
+| -------------------|----------------------|
+| Max stop time = 178| Max stop time = 685  |
+| N value = 871      | N value = 8400511    |
+| Seconds = 0        | Seconds = 4          |
+
 
