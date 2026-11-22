@@ -3,30 +3,16 @@
 #include <exception>
 #include <iostream>
 #include <stdint.h>
-#include <vector>
 
-void hailstoneTest(const std::vector<std::uint64_t> &n,
-                   const std::uint64_t &stop_limit) {
-  std::uint64_t index = 1;
-  for (const auto &num : n) {
+void hailstoneTest(std::uint64_t range, std::uint64_t large_threshold) {
+  for (auto i = 1; i < range; i++) {
     try {
-
-      TrajectoryResult result = stoppingTime(num, stop_limit);
-      if (result.completed) {
-        std::cout << "|---------completed---------|" << "\n";
-        std::cout << "When n = " << num << "\n";
-        std::cout << "item( " << index << " )" << "\n"
-                  << "Transition: " << result.transitions << "\n"
-                  << "Stopping Time: " << *result.stopping_time << "\n";
-
-      } else {
-        std::cout << "|---------Not completed------|" << "\n";
-        std::cout << "When n = " << num << "\n";
-        std::cout << "item( " << index << " )" << "\n"
-                  << "Transition: " << result.transitions << "\n";
+      TrajectoryResult result = stoppingTime(i, large_threshold);
+      if (result.overlimit) {
+        std::cout << "-----------" << std::endl;
+        std::cout << "n value = " << result.original_value << std::endl
+                  << "Stop time = " << result.stoptime << std::endl;
       }
-      index++;
-
     } catch (const std::exception &e) {
 
       // catch the error here so that we don't get invalid
@@ -37,12 +23,6 @@ void hailstoneTest(const std::vector<std::uint64_t> &n,
 }
 
 int main() {
-  std::uint64_t limit = 16;
-  std::vector<std::uint64_t> testnumber = {1, // 0
-                                           2, // 1
-                                           3, // 16
-                                           4, 5, 6, 7, 8, 9, 10, 20, 0};
-
-  hailstoneTest(testnumber, limit);
+  hailstoneTest(1000, 100000);
   return 0;
 }
