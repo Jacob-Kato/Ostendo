@@ -11,9 +11,8 @@
 struct TrajectoryResult {
   std::uint64_t original_value;
   std::uint64_t stoptime;
-  bool overlimit;
 };
 
 std::uint64_t nextHailstone(std::uint64_t n);
 
-TrajectoryResult stoppingTime(std::uint64_t n, std::uint64_t large_threshold);
+TrajectoryResult stoppingTime(std::uint64_t n);

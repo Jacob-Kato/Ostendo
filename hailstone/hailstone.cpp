@@ -5,7 +5,6 @@
 struct TrajectoryResult {
   std::uint64_t original_value;
   std::uint64_t stoptime;
-  bool overlimit;
 };
 
 std::uint64_t nextHailstone(std::uint64_t n) {
@@ -27,7 +26,7 @@ std::uint64_t nextHailstone(std::uint64_t n) {
   return (3 * n) + 1;
 }
 
-TrajectoryResult stoppingTime(std::uint64_t n, std::uint64_t large_threshold) {
+TrajectoryResult stoppingTime(std::uint64_t n) {
   TrajectoryResult n_container;
   n_container.original_value = n;
   std::uint64_t count = 0;
@@ -38,12 +37,5 @@ TrajectoryResult stoppingTime(std::uint64_t n, std::uint64_t large_threshold) {
     n = reslut;
   }
   n_container.stoptime = count;
-
-  if (n_container.stoptime >= large_threshold) {
-    n_container.overlimit = true;
-    return n_container;
-  }
-
-  n_container.overlimit = false;
   return n_container;
 }
