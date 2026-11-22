@@ -5,13 +5,13 @@
 #include <stdint.h>
 
 void hailstoneTest(std::uint64_t range, std::uint64_t large_threshold) {
-  for (auto i = 1; i < range; i++) {
+  for (auto i = 1; i <= range; i++) {
     try {
       TrajectoryResult result = stoppingTime(i, large_threshold);
       if (result.overlimit) {
         std::cout << "-----------" << std::endl;
-        std::cout << "n value = " << result.original_value << std::endl
-                  << "Stop time = " << result.stoptime << std::endl;
+        std::cout << "n value: " << result.original_value << std::endl
+                  << "Stop time: " << result.stoptime << std::endl;
       }
     } catch (const std::exception &e) {
 
@@ -23,6 +23,6 @@ void hailstoneTest(std::uint64_t range, std::uint64_t large_threshold) {
 }
 
 int main() {
-  hailstoneTest(1000, 100000);
+  hailstoneTest(1000, 178);
   return 0;
 }

@@ -31,16 +31,19 @@ TrajectoryResult stoppingTime(std::uint64_t n, std::uint64_t large_threshold) {
   TrajectoryResult n_container;
   n_container.original_value = n;
   std::uint64_t count = 0;
+
   while (n != 1) {
     std::uint64_t reslut = nextHailstone(n);
     count++;
     n = reslut;
   }
   n_container.stoptime = count;
-  if (n_container.overlimit > large_threshold) {
+
+  if (n_container.stoptime >= large_threshold) {
     n_container.overlimit = true;
     return n_container;
   }
+
   n_container.overlimit = false;
   return n_container;
 }
