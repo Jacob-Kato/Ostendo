@@ -15,7 +15,6 @@ SOURCE_FILE="$PROJECT_ROOT/hailstone/hailstone.cpp"
 FILE_NAME="${1:-main_test}"
 
 cd "$TARGET_DIR"
-g++ -O0 "${FILE_NAME}.cpp" "$SOURCE_FILE" -o "$FILE_NAME"
-
+g++ -O0 "${FILE_NAME}.cpp" "$SOURCE_FILE" -o "$FILE_NAME" -lmatplot
 "./$FILE_NAME"
 rm "$FILE_NAME"
