@@ -45,6 +45,6 @@ void hailstonetimed(std::uint64_t range) {
 }
 
 int main() {
-  hailstonetimed(100000000);
+  hailstonetimed(500000000);
   return 0;
 }
