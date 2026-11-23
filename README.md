@@ -6,7 +6,7 @@ The goal is to experiment, collect data, and see what interesting patterns I can
 </p>
 
 ## Tests
-|       1 - 1k       |        1 - 10m       |     1-100m          |
+|       1 - 1k       |        1 - 10m       |     1 - 100m        |
 | -------------------|----------------------|---------------------|
 | Max stop time = 178| Max stop time = 685  | Max stop time = 949 |
 | N value = 871      | N value = 8400511    | N value = 63728127  |
