@@ -6,6 +6,29 @@
 #include <stdexcept>
 #include <stdint.h>
 
+void hailstone3Mod4() {
+  TrajectoryResult topstopingtimeItem;
+  auto start_time = std::chrono::steady_clock::now();
+  std::uint64_t n = 0;
+
+  while (std::chrono::steady_clock::now() - start_time <
+         std::chrono::seconds(1)) {
+
+    if ((n % 4) != 3) {
+      n++;
+      continue;
+    }
+    TrajectoryResult result = stoppingTime(n);
+    if (result.stoptime > topstopingtimeItem.stoptime) {
+      topstopingtimeItem = result;
+    }
+    n++;
+  }
+  std::cout << "Top stopping Time" << std::endl
+            << "N value: " << topstopingtimeItem.original_value << std::endl
+            << "stopping Time: " << topstopingtimeItem.stoptime << std::endl;
+}
+
 void hailstoneExperiment(std::uint64_t range) {
   // Always initialize primitive variables to 0
   if (range == 0) {
@@ -45,6 +68,6 @@ void hailstonetimed(std::uint64_t range) {
 }
 
 int main() {
-  hailstonetimed(500000000);
+  hailstone3Mod4();
   return 0;
 }
