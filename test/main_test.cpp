@@ -8,6 +8,9 @@
 
 void hailstone3Mod4() {
   TrajectoryResult topstopingtimeItem;
+  topstopinhtimeItem.stoptime = 0;
+  topstopingtimeItem.original_value = 0;
+
   auto start_time = std::chrono::steady_clock::now();
   std::uint64_t n = 0;
 
