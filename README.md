@@ -12,11 +12,15 @@ The goal is to experiment, collect data, and see what interesting patterns I can
 | N value = 871      | N value = 8400511    | N value = 63728127  | N value = 268549803  |
 | milliseconds = 0   | milliseconds = 4836  | milliseconds = 54171| milliseconds = 294035|
 ---- 
-| n % 4 = 3 |
-| ------------- |
-| Max stop time = 134129140673112|
-| N value = 14072727697233496 |
-  milliseconds = 1000 |
+trying to find the biggest stopping time under one second
+|  First Try        |
+|-------------------|
+  | n % 4 = 3 |
+  | ------------- |
+  | Max stop time = |
+  | N value =  |
+  |milliseconds = 1000 |
+| Explanation: |
 ---- 
 <img align="center" width="1000" height="600" alt="1m_test" src="https://github.com/user-attachments/assets/c82418d8-5adc-4097-9b65-de3ea1950e6c" />
 
