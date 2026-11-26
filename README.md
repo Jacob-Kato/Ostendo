@@ -13,14 +13,15 @@ The goal is to experiment, collect data, and see what interesting patterns I can
 | milliseconds = 0   | milliseconds = 4836  | milliseconds = 54171| milliseconds = 294035|
 ---- 
 trying to find the biggest stopping time under one second
-|  First Try        |
+|  Test 1        |
 |-------------------|
   | n % 4 = 3 |
-  | ------------- |
+  -------------
   | Max stop time = 778|
   | N value = 10375416815 |
   |milliseconds = 1000 |
-| Explanation: |
----- 
+-----
+###  Test 1 Explanation
+
 <img align="center" width="1000" height="600" alt="1m_test" src="https://github.com/user-attachments/assets/c82418d8-5adc-4097-9b65-de3ea1950e6c" />
 
