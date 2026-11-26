@@ -20,6 +20,9 @@ trying to find the biggest stopping time under one second
 |milliseconds = 1000 |
 
 ### Test 1 Explanation
-
+For the 1st test, I decided to see if the Lord stopping times gather 
+around numbers that, when you mod 4 gives you a remainder of three. And I also put a condition where if the loop time is low and the stopping 
+time is low, it skips. It multiplies the end value by 11.
+-----
 <img align="center" width="1000" height="600" alt="1m_test" src="https://github.com/user-attachments/assets/c82418d8-5adc-4097-9b65-de3ea1950e6c" />
 
