@@ -17,8 +17,8 @@ trying to find the biggest stopping time under one second
 |-------------------|
   | n % 4 = 3 |
   | ------------- |
-  | Max stop time = |
-  | N value =  |
+  | Max stop time = 778|
+  | N value = 10375416815 |
   |milliseconds = 1000 |
 | Explanation: |
 ---- 

@@ -13,13 +13,19 @@ void hailstone3Mod4() {
 
   auto start_time = std::chrono::steady_clock::now();
   std::uint64_t n = 0;
+  std::uint64_t loop_count = 0;
 
   while (std::chrono::steady_clock::now() - start_time <
          std::chrono::seconds(1)) {
     TrajectoryResult result = stoppingTime((4 * n) + 3);
+
     if (result.stoptime > topstopingtimeItem.stoptime) {
       topstopingtimeItem = result;
     }
+    if (loop_count < 10 && topstopingtimeItem.stoptime < 300) {
+      n *= 11;
+    }
+    loop_count++;
     n++;
   }
   std::cout << "Top stopping Time" << std::endl
