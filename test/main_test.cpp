@@ -16,7 +16,7 @@ void hailstone3Mod4() {
   std::uint64_t loop_count = 0;
 
   while (std::chrono::steady_clock::now() - start_time <
-         std::chrono::seconds(1)) {
+         std::chrono::seconds(20)) {
     TrajectoryResult result = stoppingTime((4 * n) + 3);
 
     if (result.stoptime > topstopingtimeItem.stoptime) {
