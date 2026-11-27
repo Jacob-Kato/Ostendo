@@ -47,6 +47,18 @@ This is a heuristic search, not an exhaustive scan. It intentionally skips possi
 | 10 seconds | 902 | 10,376,388,847 |
 | 20 seconds | 995 | 10,383,226,991 |
 
+## Hardware and Time-Bounded Runs
+
+One set of experiments was also run on an **HP Victus 15-fb0xxx** gaming laptop with an AMD Ryzen 5 5600H processor (12 logical processors reported), 32 GiB of memory, Ubuntu 26.04.1 LTS, and an NVIDIA GeForce GTX 1650. The best reported modified-skip result from that machine was a stopping time of **1,114** at `n = 10,444,481,563`.
+
+The comparison laptop is a Lenovo Yoga C13 with approximately 8 GiB of memory. Its exact processor, compiler version, and power settings have not been recorded yet, so this is an observation rather than a controlled hardware benchmark.
+
+Hardware matters when an experiment runs for a fixed amount of time: a faster CPU can evaluate more candidates before the timer ends and may therefore discover a larger stopping time. The stopping time itself is a property of the selected input, not of the computer.
+
+This program currently runs on one CPU thread. For this workload, single-core CPU performance, compiler settings, power mode, and thermal limits matter more than the number of CPU threads or the amount of available memory. The GTX 1650 is not used by the current CPU-only implementation.
+
+To make a fair speed comparison between machines, run the same commit with the same compiler settings over a fixed number of candidates, repeat the measurement, and compare the elapsed times. A fixed-time run is useful for comparing discoveries, but it combines search strategy and hardware speed.
+
 ## Interpreting Results
 
 When comparing experiments, keep these questions separate:
